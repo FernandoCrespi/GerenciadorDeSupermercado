@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
+import net.miginfocom.swing.MigLayout;
 
 public class TelaLogin extends JPanel {
 
@@ -17,40 +19,47 @@ public class TelaLogin extends JPanel {
 	 * Create the panel.
 	 */
 	public TelaLogin() {
-		setLayout(null);
-		
+		setBackground(new Color(245, 245, 220));
+
+		setLayout(new MigLayout(
+		    "align center center, wrap 2", // centraliza TUDO
+		    "[right][center]",             // label direita, campo central
+		    "[]20[]20[]30[]"               // espaçamento vertical
+		));
+
+		// TÍTULO
 		JLabel lbTitulo = new JLabel("Mercado Massa");
-		lbTitulo.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lbTitulo.setBounds(120, 11, 182, 34);
-		add(lbTitulo);
-		
+		lbTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
+		add(lbTitulo, "span 2, align center");
+
+		// NOME
 		JLabel lbNome = new JLabel("Nome:");
 		lbNome.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lbNome.setBounds(24, 85, 57, 14);
-		add(lbNome);
-		
-		tfNome = new JTextField();
-		tfNome.setBounds(91, 82, 248, 20);
-		add(tfNome);
-		tfNome.setColumns(10);
-		
+		add(lbNome, "align right");
+
+		tfNome = new JTextField(15); // 🔥 tamanho controlado
+		add(tfNome, "growx");
+
+		// CPF
 		JLabel lbCPF = new JLabel("CPF:");
 		lbCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lbCPF.setBounds(24, 126, 57, 14);
-		add(lbCPF);
-		
-		tfCPF = new JTextField();
-		tfCPF.setBounds(91, 125, 248, 20);
-		add(tfCPF);
-		tfCPF.setColumns(10);
-		
+		add(lbCPF, "align right");
+
+		tfCPF = new JTextField(15);
+		add(tfCPF, "growx");
+
+		// BOTÕES
 		JButton btLogin = new JButton("Login");
-		btLogin.setBounds(91, 200, 89, 23);
-		add(btLogin);
-		
+		btLogin.setBackground(new Color(175, 238, 238));
+
 		JButton btCadastro = new JButton("Cadastro");
-		btCadastro.setBounds(250, 200, 89, 23);
+		btCadastro.setBackground(new Color(175, 238, 238));
+
+		// centraliza os botões
+		add(btLogin, "span 2, split 2, center");
 		add(btCadastro);
+
+
 
 
 	}
