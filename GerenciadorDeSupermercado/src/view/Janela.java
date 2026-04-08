@@ -9,16 +9,15 @@ public class Janela extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    
-    
+    private CardLayout cardLayout;
     private TelaLogin telaLogin;
-    
+  
     public Janela(){
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,400);
 
-       CardLayout cardLayout = new CardLayout();
+       cardLayout = new CardLayout();
         contentPane = new JPanel(cardLayout);
 
         setContentPane(contentPane);
