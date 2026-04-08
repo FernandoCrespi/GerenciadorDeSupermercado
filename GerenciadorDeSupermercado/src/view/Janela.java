@@ -18,7 +18,7 @@ public class Janela extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,400);
 
-        CardLayout cardLayout = new CardLayout();
+       CardLayout cardLayout = new CardLayout();
         contentPane = new JPanel(cardLayout);
 
         setContentPane(contentPane);
