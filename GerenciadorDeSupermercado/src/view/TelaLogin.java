@@ -1,67 +1,35 @@
 package view;
 
-import javax.swing.JPanel;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import net.miginfocom.swing.MigLayout;
 
 public class TelaLogin extends JPanel {
 
-	private static final long serialVersionUID = 1L;
-	private JTextField tfNome;
-	private JTextField tfCPF;
+    private JTextField nome, cpf;
+    private JButton login, cadastro;
 
-	/**
-	 * Create the panel.
-	 */
-	public TelaLogin() {
-		setBackground(new Color(245, 245, 220));
+    public TelaLogin() {
+        setBackground(new Color(245,245,220));
+        setLayout(new MigLayout("wrap 2, align center"));
 
-		setLayout(new MigLayout(
-		    "align center center, wrap 2", // centraliza TUDO
-		    "[right][center]",             // label direita, campo central
-		    "[]20[]20[]30[]"               // espaçamento vertical
-		));
+        add(new JLabel("Nome:"));
+        nome = new JTextField(15);
+        add(nome);
 
-		// TÍTULO
-		JLabel lbTitulo = new JLabel("Mercado Massa");
-		lbTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
-		add(lbTitulo, "span 2, align center");
+        add(new JLabel("CPF:"));
+        cpf = new JTextField(15);
+        add(cpf);
 
-		// NOME
-		JLabel lbNome = new JLabel("Nome:");
-		lbNome.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(lbNome, "align right");
+        login = new JButton("Login");
+        cadastro = new JButton("Cadastro");
 
-		tfNome = new JTextField(15); // 🔥 tamanho controlado
-		add(tfNome, "growx");
+        add(login, "span 2, split 2");
+        add(cadastro);
+    }
 
-		// CPF
-		JLabel lbCPF = new JLabel("CPF:");
-		lbCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(lbCPF, "align right");
-
-		tfCPF = new JTextField(15);
-		add(tfCPF, "growx");
-
-		// BOTÕES
-		JButton btLogin = new JButton("Login");
-		btLogin.setBackground(new Color(175, 238, 238));
-
-		JButton btCadastro = new JButton("Cadastro");
-		btCadastro.setBackground(new Color(175, 238, 238));
-
-		// centraliza os botões
-		add(btLogin, "span 2, split 2, center");
-		add(btCadastro);
-
-
-
-
-	}
-
+    public String getNome(){return nome.getText();}
+    public String getCPF(){return cpf.getText();}
+    public JButton getBtLogin(){return login;}
+    public JButton getBtCadastro(){return cadastro;}
 }

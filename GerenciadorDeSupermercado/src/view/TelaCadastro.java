@@ -1,87 +1,42 @@
 package view;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import java.awt.Font;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import net.miginfocom.swing.MigLayout;
 
 public class TelaCadastro extends JPanel {
 
-	private static final long serialVersionUID = 1L;
-	private JTextField tfNome;
-	private JTextField tfCPF;
-	private JCheckBox cbAdmin;
-	private JButton btSalvar;
-	private JButton btVoltar;
+    private JTextField nome, cpf;
+    private JCheckBox admin;
+    private JButton salvar, voltar;
 
-	public TelaCadastro() {
+    public TelaCadastro() {
+        setBackground(new Color(245,245,220));
+        setLayout(new MigLayout("wrap 2, align center"));
 
-		setBackground(new Color(245, 245, 220));
+        add(new JLabel("Nome:"));
+        nome = new JTextField(15);
+        add(nome);
 
-		setLayout(new MigLayout(
-			"align center center, wrap 2",
-			"[right][grow,fill]",
-			"[]20[]20[]20[]30[]"
-		));
+        add(new JLabel("CPF:"));
+        cpf = new JTextField(15);
+        add(cpf);
 
-		JLabel lbTitulo = new JLabel("Cadastro de Usuário");
-		lbTitulo.setFont(new Font("Tahoma", Font.BOLD, 26));
-		add(lbTitulo, "span 2, align center");
+        add(new JLabel("Admin:"));
+        admin = new JCheckBox();
+        admin.setBackground(new Color(245,245,220));
+        add(admin);
 
-		JLabel lbNome = new JLabel("Nome:");
-		lbNome.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(lbNome);
+        salvar = new JButton("Salvar");
+        voltar = new JButton("Voltar");
 
-		tfNome = new JTextField(15);
-		add(tfNome);
+        add(salvar, "span 2, split 2");
+        add(voltar);
+    }
 
-		JLabel lbCPF = new JLabel("CPF:");
-		lbCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(lbCPF);
-
-		tfCPF = new JTextField(15);
-		add(tfCPF);
-
-		JLabel lbAdmin = new JLabel("Administrador:");
-		lbAdmin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(lbAdmin);
-
-		cbAdmin = new JCheckBox();
-		cbAdmin.setBackground(new Color(245, 245, 220));
-		add(cbAdmin, "left");
-
-		btSalvar = new JButton("Salvar");
-		btSalvar.setBackground(new Color(144, 238, 144));
-
-		btVoltar = new JButton("Voltar");
-		btVoltar.setBackground(new Color(240, 128, 128));
-
-		add(btSalvar, "span 2, split 2, center");
-		add(btVoltar);
-	}
-
-	// 🔥 GETTERS (MVC)
-	public String getNome() {
-		return tfNome.getText();
-	}
-
-	public String getCPF() {
-		return tfCPF.getText();
-	}
-
-	public boolean isAdmin() {
-		return cbAdmin.isSelected();
-	}
-
-	public JButton getBtSalvar() {
-		return btSalvar;
-	}
-
-	public JButton getBtVoltar() {
-		return btVoltar;
-	}
+    public String getNome(){return nome.getText();}
+    public String getCPF(){return cpf.getText();}
+    public boolean isAdmin(){return admin.isSelected();}
+    public JButton getBtSalvar(){return salvar;}
+    public JButton getBtVoltar(){return voltar;}
 }

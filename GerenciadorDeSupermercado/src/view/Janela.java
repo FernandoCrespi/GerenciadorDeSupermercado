@@ -1,39 +1,29 @@
 package view;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 import java.awt.CardLayout;
 
 public class Janela extends JFrame {
-	
-	private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private CardLayout cardLayout;
-    private TelaLogin telaLogin;
-  
-    public Janela(){
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    private JPanel panel;
+    private CardLayout layout;
+
+    public Janela() {
         setSize(600,400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-       cardLayout = new CardLayout();
-        contentPane = new JPanel(cardLayout);
+        layout = new CardLayout();
+        panel = new JPanel(layout);
 
-        setContentPane(contentPane);
-
+        setContentPane(panel);
     }
 
-    public void adicionarTela(String nome,JPanel tela){
-
-        contentPane.add(tela,nome);
-
+    public void adicionarTela(String nome, JPanel tela) {
+        panel.add(tela, nome);
     }
 
-    public void mostrarTela(String nome){
-
-        cardLayout.show(contentPane,nome);
-
+    public void mostrarTela(String nome) {
+        layout.show(panel, nome);
     }
-
 }
